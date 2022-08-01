@@ -11,6 +11,7 @@ public class Win {
         }
         return rsl;
     }
+
     public static boolean checkHorizontal(int[][] board, int row) {
         boolean result = true;
         for (int cell = 0; cell < board[row].length; cell++) {
@@ -21,6 +22,7 @@ public class Win {
         }
         return result;
     }
+
     public static boolean checkVertical(int[][] board, int column) {
         boolean result = true;
         for (int row = 0; row < board.length; row++) {
