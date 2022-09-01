@@ -2,6 +2,7 @@ package ru.job4j.chess;
 
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
+
 import java.util.Arrays;
 
 public final class Logic {
@@ -21,6 +22,15 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (Figure figure : figures) {
+            for (Cell cell : steps) {
+                if (figure != null && figure.position().equals(cell)) {
+                    throw new OccupiedCellException(
+                            String.format("Your move is hindered by a figure on the square %s",
+                            figure.position()));
+                }
+            }
+        }
         return true;
     }
 
